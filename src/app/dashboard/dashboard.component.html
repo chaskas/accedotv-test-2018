@@ -1,0 +1,41 @@
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" [routerLink]="['/home']">Home</a>
+  <a href="#">History</a>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12 p-4">
+      <div id="carousel" class="carousel slide" data-ride="carousel" data-keyboard="false">
+        <div class="carousel-inner">
+
+          <div class="carousel-item" *ngFor="let slide of slides; let i = index" [ngClass]="{'active': i == 0 }">
+            <div class="row mx-0">
+              <div class="col-sm-2 px-0" *ngFor="let movie of slide">
+                <div class="card border-light hovereffect" (click)="setFocus(movie)" [class.focus]="selectedMovie == movie">
+                  <img class="card-img" [src]="movie.images[0].url" alt="{{ movie.title }}" />
+                  <div class="overlay">
+                    <h2>{{ movie.title }}</h2>
+                    <div class="play-wrapper">
+                      <a class="info d-flex align-self-center" [routerLink]="['/watch', movie.id]" (click)="setMovie(movie)">
+                        <i class="icon ion-md-play"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
