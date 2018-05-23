@@ -9,7 +9,7 @@ import {VgBufferingModule} from 'videogular2/buffering';
 
 import { AppComponent } from './app.component';
 import { MovieService } from './movie.service';
-import { ViewerComponent } from './viewer/viewer.component';
+import { PlayerComponent } from './player/player.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RoutingModule } from './routing/routing.module';
 
@@ -18,12 +18,14 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { environment } from '../environments/environment';
+import { HistoryComponent } from './history/history.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ViewerComponent,
-    DashboardComponent
+    PlayerComponent,
+    DashboardComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,

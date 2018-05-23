@@ -14,11 +14,11 @@ export enum KEY_CODE {
 }
 
 @Component({
-  selector: 'app-viewer',
-  templateUrl: './viewer.component.html',
-  styleUrls: ['./viewer.component.css']
+  selector: 'app-player',
+  templateUrl: './player.component.html',
+  styleUrls: ['./player.component.css']
 })
-export class ViewerComponent implements OnInit {
+export class PlayerComponent implements OnInit {
 
   movie: Movie;
   api: VgAPI;
@@ -42,6 +42,7 @@ export class ViewerComponent implements OnInit {
     this.api = api;
 
     this.itemRef.set({
+      id: this.movie.id,
       title: this.movie.title,
       lastSeen: Date.now()
     });
