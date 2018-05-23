@@ -4,15 +4,15 @@
 </nav>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-12 p-4">
+    <div class="col-sm-12 p-4 loading">
       <div id="carousel" class="carousel slide" data-ride="carousel" data-keyboard="false">
         <div class="carousel-inner">
 
           <div class="carousel-item" *ngFor="let slide of slides; let i = index" [ngClass]="{'active': i == 0 }">
             <div class="row mx-0">
               <div class="col-sm-2 px-0" *ngFor="let movie of slide">
-                <div class="card border-light hovereffect" (click)="setFocus(movie)" [class.focus]="selectedMovie == movie">
-                  <img class="card-img" [src]="movie.images[0].url" alt="{{ movie.title }}" />
+                <div class="card border-light hovereffect loading" (click)="setFocus(movie)" [class.focus]="selectedMovie == movie">
+                  <img class="card-img" [src]="movie.images[0].url" alt="{{ movie.title }}" #image (error)="onImageError(image)"/>
                   <div class="overlay">
                     <h2>{{ movie.title }}</h2>
                     <div class="play-wrapper">
