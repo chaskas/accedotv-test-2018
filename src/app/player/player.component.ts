@@ -29,13 +29,15 @@ export class PlayerComponent implements OnInit {
     private movieService: MovieService,
     private router: Router,
     private db: AngularFireDatabase
-  ) { }
-
-  ngOnInit() {
+  ) { 
     this.uid = localStorage.getItem('uid');
     this.movie = this.movieService.getMovie();
-
+  
     this.itemRef = this.db.object('users/' + this.uid + '/history/' + this.movie.id);
+  }
+
+  ngOnInit() {
+
   }
 
   onPlayerReady(api: VgAPI) {
