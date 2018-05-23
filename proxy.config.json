@@ -1,0 +1,11 @@
+{
+  "/api": {
+    "target": "http://sela-test.herokuapp.com",
+    "secure": false,
+    "pathRewrite": {
+      "^/api": ""
+    },
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}

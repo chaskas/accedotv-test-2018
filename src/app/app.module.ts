@@ -13,6 +13,12 @@ import { ViewerComponent } from './viewer/viewer.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RoutingModule } from './routing/routing.module';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireStorageModule } from 'angularfire2/storage';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
+import { environment } from '../environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +27,7 @@ import { RoutingModule } from './routing/routing.module';
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase, 'accedo-test-2018'),
     HttpClientModule,
     VgCoreModule,
     VgControlsModule,
