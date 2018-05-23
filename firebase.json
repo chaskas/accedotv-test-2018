@@ -14,7 +14,7 @@
     ],
     "headers": [
       {
-        "source" : "**/*.@(json)",
+        "source" : "**",
         "headers" : [ 
           {
           "key" : "Access-Control-Allow-Origin",
