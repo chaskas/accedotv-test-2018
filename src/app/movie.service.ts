@@ -11,13 +11,11 @@ export class MovieService {
   constructor(private httpClient: HttpClient) {}
 
   private url = '/api/assets/hkzxv.json';
-  // private url = 'http://localhost:3000/entries';
 
   getMovies(): Promise<Movie[]> {
     return this.httpClient.get(this.url)
       .toPromise()
       .then(response => response['entries'] as Movie[])
-      // .then(response => response as Movie[])
       .catch(this.handleError);
   }
 

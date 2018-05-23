@@ -3,8 +3,11 @@ import { Router } from '@angular/router';
 
 import { VgAPI } from 'videogular2/core';
 
+import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
+
 import { MovieService } from '../movie.service';
 import { Movie } from '../movie';
+import { Observable } from 'rxjs';
 
 export enum KEY_CODE {
   ESCAPE = 27
@@ -18,29 +21,33 @@ export enum KEY_CODE {
 export class ViewerComponent implements OnInit {
 
   movie: Movie;
-
   api: VgAPI;
+  uid: string;
+  itemRef: AngularFireObject<any>;
 
   constructor(
     private movieService: MovieService,
-    private router: Router
+    private router: Router,
+    private db: AngularFireDatabase
   ) { }
 
   ngOnInit() {
+    this.uid = localStorage.getItem('uid');
     this.movie = this.movieService.getMovie();
+
+    this.itemRef = this.db.object('users/' + this.uid + '/history/' + this.movie.id);
   }
 
   onPlayerReady(api: VgAPI) {
     this.api = api;
 
+    this.itemRef.set({
+      title: this.movie.title,
+      lastSeen: Date.now()
+    });
+
     this.api.getDefaultMedia().currentTime = 0;
     this.api.play();
-
-    this.api.getDefaultMedia().subscriptions.timeUpdate.subscribe(
-      () => {
-        console.log('timeUpdate'); // TODO: Actualizar lastSeenTime
-      }
-    );
 
     this.api.getDefaultMedia().subscriptions.ended.subscribe(
       () => {

@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "http://sela-test.herokuapp.com",
+    "target": "https://sela-test.herokuapp.com",
     "secure": false,
     "pathRewrite": {
       "^/api": ""

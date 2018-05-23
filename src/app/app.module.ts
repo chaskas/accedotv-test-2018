@@ -14,7 +14,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { RoutingModule } from './routing/routing.module';
 
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireStorageModule } from 'angularfire2/storage';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { environment } from '../environments/environment';
@@ -33,10 +33,13 @@ import { environment } from '../environments/environment';
     VgControlsModule,
     VgOverlayPlayModule,
     VgBufferingModule,
-    RoutingModule
+    RoutingModule,
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
   ],
   providers: [
-    MovieService
+    MovieService,
+    AngularFireAuthModule
   ],
   bootstrap: [AppComponent]
 })
