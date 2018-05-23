@@ -10,8 +10,7 @@ export class MovieService {
 
   constructor(private httpClient: HttpClient) {}
 
-  private url = 'https://sela-test.herokuapp.com/assets/hkzxv.json';
-  // private url = '/assets/hkzxv.json';
+  private url = '/api/assets/hkzxv.json';
 
   getMovies(): Promise<Movie[]> {
     return this.httpClient.get(this.url)

@@ -49,6 +49,7 @@
     "@types/node": "~8.9.4",
     "codelyzer": "~4.2.1",
     "enhanced-resolve": "^3.3.0",
+    "http-proxy-middleware": "^0.18.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~1.7.1",
