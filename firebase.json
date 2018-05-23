@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/accedo-test",
+    "public": "dist",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -11,17 +11,6 @@
         "source": "**",
         "destination": "/index.html"
       }
-    ],
-    "headers": [
-      {
-        "source" : "**",
-        "headers" : [ 
-          {
-          "key" : "Access-Control-Allow-Origin",
-          "value" : "*"
-          }
-        ]
-      } 
     ]
   }
 }
