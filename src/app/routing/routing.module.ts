@@ -7,6 +7,7 @@ import { PlayerComponent } from '../player/player.component';
 import { HistoryComponent } from '../history/history.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: 'home', component: DashboardComponent },
   { path: 'watch/:id', component: PlayerComponent },
   { path: 'history', component: HistoryComponent }
