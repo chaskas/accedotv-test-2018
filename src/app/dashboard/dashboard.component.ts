@@ -112,6 +112,7 @@ export class DashboardComponent implements OnInit {
 
     if (event.keyCode === KEY_CODE.ENTER) {
       if (this.selectedMovie) {
+        this.setMovie(this.selectedMovie);
         this.router.navigate(['watch', this.selectedMovie.id]);
       }
     }
