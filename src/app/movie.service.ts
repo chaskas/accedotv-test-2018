@@ -10,7 +10,7 @@ export class MovieService {
 
   constructor(private httpClient: HttpClient) {}
 
-  private url = '/api/assets/hkzxv.json';
+  private url = '/assets/hkzxv.json';
 
   getMovies(): Promise<Movie[]> {
     return this.httpClient.get(this.url)
