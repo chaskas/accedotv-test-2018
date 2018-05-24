@@ -8,7 +8,7 @@ import {VgOverlayPlayModule} from 'videogular2/overlay-play';
 import {VgBufferingModule} from 'videogular2/buffering';
 
 import { AppComponent } from './app.component';
-import { MovieService } from './movie.service';
+import { MovieService } from './shared/movie.service';
 import { PlayerComponent } from './player/player.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RoutingModule } from './routing/routing.module';
@@ -19,25 +19,27 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { environment } from '../environments/environment';
 import { HistoryComponent } from './history/history.component';
+import { LayoutComponent } from './layout/layout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlayerComponent,
     DashboardComponent,
-    HistoryComponent
+    HistoryComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
-    AngularFireModule.initializeApp(environment.firebase, 'accedo-test-2018'),
     HttpClientModule,
+    RoutingModule,
+    AngularFireModule.initializeApp(environment.firebase, 'accedo-test-2018'),
+    AngularFireAuthModule,
+    AngularFireDatabaseModule,
     VgCoreModule,
     VgControlsModule,
     VgOverlayPlayModule,
-    VgBufferingModule,
-    RoutingModule,
-    AngularFireAuthModule,
-    AngularFireDatabaseModule
+    VgBufferingModule
   ],
   providers: [
     MovieService,

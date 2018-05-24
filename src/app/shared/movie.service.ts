@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
-import { Movie } from './movie';
+import { Movie } from './model/movie';
 
 @Injectable()
 export class MovieService {

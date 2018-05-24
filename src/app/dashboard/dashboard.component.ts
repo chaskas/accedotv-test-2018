@@ -1,8 +1,8 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Movie } from '../movie';
-import { MovieService } from '../movie.service';
+import { Movie } from '../shared/model/movie';
+import { MovieService } from '../shared/movie.service';
 
 declare var $: any;
 

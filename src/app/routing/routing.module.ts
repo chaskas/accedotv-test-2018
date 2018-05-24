@@ -5,12 +5,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { PlayerComponent } from '../player/player.component';
 import { HistoryComponent } from '../history/history.component';
+import { LayoutComponent } from '../layout/layout.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full'},
-  { path: 'home', component: DashboardComponent },
-  { path: 'watch/:id', component: PlayerComponent },
-  { path: 'history', component: HistoryComponent }
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', component: LayoutComponent, 
+    children: [ 
+      { path: 'home', component: DashboardComponent },
+      { path: 'watch/:id', component: PlayerComponent },
+      { path: 'history', component: HistoryComponent }
+    ]
+  }
  ];
 
 @NgModule({

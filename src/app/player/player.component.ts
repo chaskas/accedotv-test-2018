@@ -5,8 +5,8 @@ import { VgAPI } from 'videogular2/core';
 
 import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
 
-import { MovieService } from '../movie.service';
-import { Movie } from '../movie';
+import { MovieService } from '../shared/movie.service';
+import { Movie } from '../shared/model/movie';
 import { Observable } from 'rxjs';
 
 export enum KEY_CODE {
