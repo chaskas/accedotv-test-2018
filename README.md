@@ -1,27 +1,43 @@
-# AccedoTest
+# AccedoTest2018
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.1.
+Este proyecto fue desarrollado en respuesta al test de selección de Accedo.tv del año 2018.
+Es un selector y visor de películas obtenidas desde un servicio web y controlable a través del teclado y mouse.
+Utiliza las teclas flecha derecha, flecha izquierda, enter y escape para la navegación en el home.
+El proyecto fue desarrollado con el framework Angular 6 y almacena los datos del usuario anónimo y historial de películas vistas en Firebase Database.
 
-## Development server
+## Instrucciones de Instalación
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### 0. Pre requisitos
 
-## Code scaffolding
+Debes tener instalado Node y NPM, este proyecto fue desarrollado con las siguientes versiones.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
+{
+  "node": "9.10.1",
+  "npm": "6.0.1"
+}
+```
 
-## Build
+### 1. Descarga:
+Ejecuta `git clone https://github.com/chaskas/accedotv-test-2018.git` para descargar el proyecto en tu local.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### 2. Instala:
+Ejecuta `npm install` para descargar los paquetes necesarios para el funcionamiento correcto de la aplicación:
 
-## Running unit tests
+### 3. Corre:
+Si todo lo anterior salió bien ya puedes ejecutar la aplicación en tu local, para esto debes ejecutar `ng serve --proxy-config proxy.config.json`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+La opción `--proxy-config` permite levantar un proxy local para evitar errores del tipo **CORS**.
 
-## Running end-to-end tests
+### 4. Diviértete:
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Puedes hacer `fork` y modificar el proyecto a tu antojo.
 
-## Further help
+### 5. Otros:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Puedes ver una demo del proyecto en heroku:
+http://accedo-test-2018.herokuapp.com
+
+Se ha integrado Travis-CI para hacer deploys a heroku con cada actualización en la rama master.
+
+Cualquier duda escríbeme al mail: *rodrigo [at] wdev [dot] cl*
