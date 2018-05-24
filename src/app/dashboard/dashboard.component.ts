@@ -65,7 +65,6 @@ export class DashboardComponent implements OnInit {
 
   onImageError(image:any) {
     image.src='https://imgplaceholder.com/214x317?text=Ups...&font-size=18';
-    console.log(image);
   }
 
   @HostListener('window:keyup', ['$event'])
