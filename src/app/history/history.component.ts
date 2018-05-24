@@ -17,7 +17,11 @@ export class HistoryComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+    // Rescata uid desde localStorage
     this.uid = localStorage.getItem('uid');
+
+    // Obtiene historial de peliculas vistas desde Firebase
     this.movies = this.db.list('users/' + this.uid + '/history').valueChanges();
   }
 

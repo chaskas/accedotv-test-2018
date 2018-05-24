@@ -19,12 +19,16 @@ export enum KEY_CODE {
 })
 export class DashboardComponent implements OnInit {
 
+  // Contiene el listado de peliculas
   movies: Movie[];
 
+  // Contiene las slides
   slides: Array<Array<Movie>>;
 
+  // Contiene la pelicula seleccionada
   selectedMovie: Movie;
 
+  // Contiene la slide actual
   slideIndex: number;
 
   constructor(
@@ -35,6 +39,8 @@ export class DashboardComponent implements OnInit {
     localStorage.setItem('currentSlideIndex', '0');
   }
 
+  // Obtiene las peliculas desde el servicio y las almacena en this.movies
+  // además, se declara un listener que mantiene el slide actual en localStorage
   ngOnInit() {
     this.movieService.getMovies().then(response => this.getMoviesSuccess(response as Movie[]), error => this.getMoviesFailed());
     $('#carousel').on('slide.bs.carousel', function (e) {
@@ -42,6 +48,7 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  // Reorganiza las peliculas en slides para mostrar correctamente en vista
   getMoviesSuccess(movies: Movie[]) {
     const total_slides = Math.ceil(movies.length / 6);
     let j = 0;
@@ -51,6 +58,7 @@ export class DashboardComponent implements OnInit {
     }
   }
 
+  // Setea la actual movie
   setMovie(movie: Movie) {
     this.movieService.setMovie(movie);
   }
@@ -63,16 +71,23 @@ export class DashboardComponent implements OnInit {
     this.selectedMovie = movie;
   }
 
+  // Si falla la carga de la imagen la reemplaza por un holder
   onImageError(image:any) {
     image.src='https://imgplaceholder.com/214x317?text=Ups...&font-size=18';
   }
 
+  // Se declara listener para eventos de teclado
   @HostListener('window:keyup', ['$event'])
   keyEvent(event: KeyboardEvent) {
 
+    // Tecla Flecha derecha
     if (event.keyCode === KEY_CODE.RIGHT_ARROW) {
       this.slideIndex = Number(localStorage.getItem('currentSlideIndex'));
+
+      // Detiene el carousel
       $('#carousel').carousel('pause');
+
+      // Para manejo de la pelicula seleccionada y slide actual
       if (!this.selectedMovie) {
         this.selectedMovie = this.slides[this.slideIndex][0];
       } else {
@@ -91,9 +106,14 @@ export class DashboardComponent implements OnInit {
       }
     }
 
+    // Tecla Flecha izquierda
     if (event.keyCode === KEY_CODE.LEFT_ARROW) {
       this.slideIndex = Number(localStorage.getItem('currentSlideIndex'));
+      
+      // Detiene el carousel
       $('#carousel').carousel('pause');
+
+      // Para manejo de la pelicula seleccionada y slide actual
       if (!this.selectedMovie) {
         $('#carousel').carousel('prev');
         this.slideIndex = Number(localStorage.getItem('currentSlideIndex'));
@@ -114,8 +134,11 @@ export class DashboardComponent implements OnInit {
       }
     }
 
+    // Tecla Enter
     if (event.keyCode === KEY_CODE.ENTER) {
       if (this.selectedMovie) {
+
+        // Setea la pelicula seleccionada e inicia visor
         this.setMovie(this.selectedMovie);
         this.router.navigate(['watch', this.selectedMovie.id]);
       }

@@ -43,15 +43,20 @@ export class PlayerComponent implements OnInit {
   onPlayerReady(api: VgAPI) {
     this.api = api;
 
+    // Almacena pelicula actual en Firebase (para historial)
     this.itemRef.set({
       id: this.movie.id,
       title: this.movie.title,
       lastSeen: Date.now()
     });
 
+    // Setea tiempo inicial en 0
     this.api.getDefaultMedia().currentTime = 0;
+
+    // Inicia la reproduccion
     this.api.play();
 
+    // Detecta término de película y envía al home
     this.api.getDefaultMedia().subscriptions.ended.subscribe(
       () => {
         this.router.navigate(['home']);
@@ -59,6 +64,7 @@ export class PlayerComponent implements OnInit {
     );
   }
 
+  // Detecta tecla escape y vuelve al home
   @HostListener('window:keyup', ['$event'])
   keyEvent(event: KeyboardEvent) {
     if (event.keyCode === KEY_CODE.ESCAPE) {
